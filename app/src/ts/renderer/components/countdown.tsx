@@ -2,7 +2,7 @@ import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 
 import { Timer } from "@renderer/components/timer";
 import { now } from "@renderer/utils/now";
-import { timeToHHMMSS } from "@renderer/utils/timeToHHMMSS";
+import { timeToHMS } from "@renderer/utils/timeToHMS";
 
 interface CountdownTimerProps {
   time: number;
@@ -33,16 +33,11 @@ export const CountdownTimer: FC<CountdownTimerProps> = ({ time }) => {
     setTimeSpend(0);
   }, [setStartTime]);
 
-  const { HH, MM, SS } = timeToHHMMSS(time - timeSpend);
+  const { H, M, S } = timeToHMS(time - timeSpend);
 
   return (
     <div>
-      <Timer
-        onClick={startCountdown}
-        seconds={SS}
-        minutes={MM}
-        hours={HH}
-      ></Timer>
+      <Timer onClick={startCountdown} seconds={S} minutes={M} hours={H} />
       <span onClick={stopCountdown}>STOP</span>
     </div>
   );
