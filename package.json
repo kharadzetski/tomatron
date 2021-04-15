@@ -1,7 +1,7 @@
 {
-  "name": "typescript-react-boilerplate",
-  "version": "1.5.0",
-  "description": "Electron v4, TypeScript v3, React v16, Webpack v4 with hot reload boierplate",
+  "name": "tomatron",
+  "version": "0.0.1",
+  "description": "Pomodoro timer on Electron",
   "main": "./target/main.js",
   "author": {
     "name": "lieone",
@@ -9,14 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lieone/typescript-react-boilerplate.git"
+    "url": "https://github.com/lieone/tomatron.git"
   },
   "keywords": [
-    "react",
-    "typescript",
-    "webpack",
-    "hot",
-    "webpack-dev-server"
+    "pomodoro",
+    "timer"
   ],
   "scripts": {
     "clean": "rimraf dist target",
@@ -33,6 +30,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bootstrap": "5.0.0-beta3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -42,11 +40,15 @@
     "@types/webpack-env": "1.16.0",
     "concurrently": "6.0.2",
     "cross-env": "7.0.3",
+    "css-loader": "5.2.1",
     "electron": "12.0.4",
     "electron-builder": "22.10.5",
     "html-webpack-plugin": "5.3.1",
     "rimraf": "3.0.2",
+    "sass": "1.32.8",
+    "sass-loader": "11.0.1",
     "source-map-loader": "2.0.1",
+    "style-loader": "2.0.0",
     "ts-loader": "8.1.0",
     "tsconfig-paths-webpack-plugin": "3.5.1",
     "typescript": "4.2.4",
