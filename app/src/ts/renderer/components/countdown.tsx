@@ -10,7 +10,7 @@ interface CountdownTimerProps {
 
 export function CountdownTimer({ time }: CountdownTimerProps): JSX.Element {
   const [timeSpend, setTimeSpend] = useState(0);
-  useEffect(() => timerStore.subscribe(setTimeSpend), []);
+  useEffect(() => timerStore.subscribeTimeSpend(setTimeSpend), []);
 
   const startCountdown = useCallback(() => {
     timerStore.start(time);
@@ -18,6 +18,7 @@ export function CountdownTimer({ time }: CountdownTimerProps): JSX.Element {
 
   const stopCountdown = useCallback(() => {
     timerStore.clearInterval();
+    setTimeSpend(0);
   }, []);
 
   const { H, M, S } = timeToHMS(time - timeSpend);
