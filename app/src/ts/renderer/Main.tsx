@@ -6,7 +6,7 @@ export const Main: FC = () => {
   return (
     <div className="position-relative vh-100">
       <div className="position-absolute top-50 start-50 translate-middle">
-        <CountdownTimer time={1000 * 60 * 25}></CountdownTimer>
+        <CountdownTimer time={1000 * 5}></CountdownTimer>
       </div>
     </div>
   );
