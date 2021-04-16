@@ -3,7 +3,7 @@ import { BrowserWindow } from "electron";
 let win;
 const isDev = process.env.NODE_ENV === "development";
 
-export const onReady = () => {
+export const onReady = (): void => {
   win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true,

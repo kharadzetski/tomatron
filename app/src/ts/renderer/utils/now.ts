@@ -1,1 +1,1 @@
-export const now = () => new Date().getTime();
+export const now = (): number => new Date().getTime();

@@ -1,6 +1,6 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
-import { Timer } from "@renderer/components/timer";
+import Timer from "@renderer/components/timer";
 import { now } from "@renderer/utils/now";
 import { timeToHMS } from "@renderer/utils/timeToHMS";
 
@@ -8,10 +8,9 @@ interface CountdownTimerProps {
   time: number;
 }
 
-export const CountdownTimer: FC<CountdownTimerProps> = ({ time }) => {
+export function CountdownTimer({ time }: CountdownTimerProps): JSX.Element {
   const [startTime, setStartTime] = useState(0);
   const [timeSpend, setTimeSpend] = useState(0);
-
   useEffect(() => {
     if (startTime) {
       const intervalId = setInterval(() => {
@@ -26,12 +25,12 @@ export const CountdownTimer: FC<CountdownTimerProps> = ({ time }) => {
 
   const startCountdown = useCallback(() => {
     setStartTime(now());
-  }, [setStartTime]);
+  }, []);
 
   const stopCountdown = useCallback(() => {
     setStartTime(0);
     setTimeSpend(0);
-  }, [setStartTime]);
+  }, []);
 
   const { H, M, S } = timeToHMS(time - timeSpend);
 
@@ -41,4 +40,4 @@ export const CountdownTimer: FC<CountdownTimerProps> = ({ time }) => {
       <span onClick={stopCountdown}>STOP</span>
     </div>
   );
-};
+}
