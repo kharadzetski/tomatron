@@ -1,5 +1,6 @@
 import { app } from "electron";
 
-import { onReady } from "@main/ready";
+import { configWindow } from "@main/config/configWindow";
+import { configureTray } from "@main/config/configTray";
 
-app.whenReady().then(onReady);
+app.whenReady().then(configWindow).then(configureTray);
