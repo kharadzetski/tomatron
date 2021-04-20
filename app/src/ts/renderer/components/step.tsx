@@ -26,13 +26,17 @@ export function CountdownByStep({
   useEffect(
     () =>
       timerStore.subscribeFinished(() => {
+        const myNotification = new Notification("Title", {
+          body: "Notification from the Renderer process",
+        });
+        myNotification.onclick = () => console.log("clicked");
         setCurrentStep((step) => {
           if (step >= maxSteps) {
             return 0;
           }
           return step + 1;
         });
-      }),
+      }).unsubscribe,
     [maxSteps]
   );
   return (

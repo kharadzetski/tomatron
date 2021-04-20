@@ -10,7 +10,7 @@ interface CountdownTimerProps {
 
 export function CountdownTimer({ time }: CountdownTimerProps): JSX.Element {
   const [timeSpend, setTimeSpend] = useState(0);
-  useEffect(() => timerStore.subscribeTimeSpend(setTimeSpend), []);
+  useEffect(() => timerStore.subscribeTimeSpend(setTimeSpend).unsubscribe, []);
 
   const startCountdown = useCallback(() => {
     timerStore.start(time);
