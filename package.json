@@ -1,6 +1,6 @@
 {
   "name": "tomatron",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Pomodoro timer on Electron",
   "main": "./target/main.js",
   "author": {
